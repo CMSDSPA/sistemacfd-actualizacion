@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'apps.info',
     'apps.academic',
     'apps.requiriments',
-    'apps.academic',
     
 ]
 
