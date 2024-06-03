@@ -30,4 +30,14 @@ class CustomUser(AbstractUser):
     
     class Meta:
         verbose_name = "Usuario"
+        verbose_name_plural = "Usuarios"  
+    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, verbose_name="Genero", default="SE", null=True, blank=False)
+    departement = models.ForeignKey('Departament', on_delete=models.CASCADE, verbose_name="Departamento", null=True, blank=False)
+    def __str__(self):
+        return self.username
+    
+    class Meta:
+        verbose_name = "Usuario"
         verbose_name_plural = "Usuarios"
+<<<<<<< HEAD
+=======
