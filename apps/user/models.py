@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser 
+from django.contrib.auth.models import AbstractUser
+from apps.academic.models import Campus, Progresive_School, Teacher_Training
 
 class CustomUser(AbstractUser):
-    personal_number = models.IntegerField(verbose_name ="Numero de personal", null=True, blank=False, unique= True)
-    rut = models.CharField(max_length=10, verbose_name="Rut", null=True, blank=False, unique= True)
+    personal_number = models.CharField(max_length=15, verbose_name="Numero de personal", null=True, blank=False)
+    rut = models.CharField(max_length=10, verbose_name="Rut", null=True, blank=False, unique=True)
     mother_surname = models.CharField(max_length=50, verbose_name="Apellido de la madre", null=True, blank=False)
     phone = models.IntegerField(verbose_name="Telefono", null=True, blank=True)
     birth_date = models.DateField(verbose_name="Fecha de nacimiento", null=True, blank=False)
