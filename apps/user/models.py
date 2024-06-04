@@ -16,6 +16,7 @@ class CustomUser(AbstractUser):
     secondary_email = models.EmailField(verbose_name="Email secundario", null=True, blank=True)
     url_linkedin = models.URLField(verbose_name="URL de linkedin", null=True, blank=True)
     img_profile = models.ImageField(verbose_name="Imagen de perfil", null=True, blank=True, default="/img/profile.webp")
+    
     GENDER_CHOICES = [
         ('M', 'Masculino'),
         ('F', 'Femenino'),
@@ -27,14 +28,6 @@ class CustomUser(AbstractUser):
     progresive_school = models.ForeignKey(Progresive_School, on_delete=models.CASCADE, verbose_name="Escuela Programa")
     teacher_training = models.ManyToManyField(Teacher_Training, verbose_name="Formacion Docente")
     
-    def __str__(self):
-        return self.username
-    
-    class Meta:
-        verbose_name = "Usuario"
-        verbose_name_plural = "Usuarios"  
-    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, verbose_name="Genero", default="SE", null=True, blank=False)
-    departement = models.ForeignKey('Departament', on_delete=models.CASCADE, verbose_name="Departamento", null=True, blank=False)
     def __str__(self):
         return self.username
     
