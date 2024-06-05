@@ -15,7 +15,7 @@ function handleGetImagesList(){
     $.ajax({
         type: 'GET',
         url: "/getImages/",
-        async: false,
+        async: true,
         dataType: "JSON"
         , success: function (data) {
            console.log(data);
@@ -40,14 +40,27 @@ function handleGetImagesList(){
 
 
 
-function handlegetImageFromSelect( imgPath ){
+function handlegetImageFromSelect( imgPathFolder ){
+
+    console.log(imgPathFolder);
+
     $.ajax({
         type: 'GET',
         url: "/getImagesPath/",
         async: true,
+        data : { 'folder': imgPathFolder },
         dataType: "JSON"
         , success: function (data) {
            console.log(data);
+
+           const images = data.images;
+           const imageContainer = $('#images');
+
+           imageContainer.empty();
+           images.forEach(function(imagePath) {
+               const imgElement = $('<img>').attr('src', imagePath).attr('alt', 'Image');
+               imageContainer.append(imgElement);
+           });
 
 
         }

@@ -51,5 +51,3 @@ class Departament(models.Model):
         verbose_name = "Departamento"
         verbose_name_plural = "Departamentos"
 
-# Relator preguntar para completar
->>>>>>> 2e2620fb7722fbe0f89805959974bcbcae4634a4

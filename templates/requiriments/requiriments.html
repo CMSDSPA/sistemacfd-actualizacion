@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-
+    <div class="row " style="padding-bottom: 30px;">
+        <h1 class="text-center"> Modelos Aris  </h1>
+    </div>
+    
 
     <div class="flex items-center">
         <div class="col-md-10">
             <div class="form-check"> 
-                <select name="imagen" id="folder-select" class=" form-select " data-live-search="true" >
+                <select name="imagen" id="folder-select" class=" form-select "  onchange="handlegetImageFromSelect(this.value);" data-live-search="true" >
                     
                 </select>
             </div>            
@@ -14,8 +17,8 @@
     </div>
     
 
-    <div class="row">
-        <img /> 
+    <div class="flex flex-row items-center col-10 " id="images"  style="padding-top: 30px;">
+        
     </div>
     
 
