@@ -18,9 +18,13 @@ class CustomUser(AbstractUser):
         ('M', 'Masculino'),
         ('F', 'Femenino'),
         ('SE', 'Sin especificar'),
-    ]    
-    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, verbose_name="Genero", default="SE", null=True, blank=False)
-    departement = models.ForeignKey('Departament', on_delete=models.CASCADE, verbose_name="Departamento", null=True, blank=False)
+    ]
+    gender = models.CharField(max_length=20, choices=GENDER_CHOICES, verbose_name="Genero", default="SE", null=True, blank=False)
+    
+    campus = models.ForeignKey(Campus, on_delete=models.CASCADE, verbose_name="Sede")
+    progresive_school = models.ForeignKey(Progresive_School, on_delete=models.CASCADE, verbose_name="Escuela Programa")
+    teacher_training = models.ManyToManyField(Teacher_Training, verbose_name="Formacion Docente")
+    
     def __str__(self):
         return self.username
     
